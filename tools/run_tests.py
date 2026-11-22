@@ -5,6 +5,8 @@ Uso: python3 tools/run_tests.py [--circuito archivo.circ] [fuente.asm ...]
 Sin fuentes prueba programs/*.asm y tests/*.asm. Necesita Java 21, MARS (MARS_JAR),
 Logisim Evolution 5.0.0 (LOGISIM_JAR) y, solo si la CPU tiene entidades VHDL, Questa con licencia
 (QUESTA_BIN, SALT_LICENSE_SERVER).
+
+Uso: python tools/run_tests.py
 """
 from pathlib import Path
 import argparse
@@ -15,7 +17,8 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parent.parent
 HERE = ROOT/'tools'
-JAR = os.environ.get('LOGISIM_JAR', '/snap/logisim-evolution-snapcraft/current/jar/logisim-evolution.jar')
+#JAR = os.environ.get('LOGISIM_JAR', '/snap/logisim-evolution-snapcraft/current/jar/logisim-evolution.jar')
+JAR = os.environ.get('LOGISIM_JAR', 'C:/Program Files/logisim-evolution/app/logisim-evolution-5.0.0-all.jar')
 MARS = os.environ.get('MARS_JAR', str(Path.home()/'Apps/mars/Mars4_5.jar'))
 JAVA = os.environ.get('JAVA', 'java')
 CICLOS_MAX = 60000  # con 4-5 ciclos por instruccion, el programa mas largo usa unos 8000
